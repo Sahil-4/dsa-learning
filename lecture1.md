@@ -113,3 +113,7 @@
    `5. check if n is divisible by i if yes then print not prime and End the program`
    `6. if n is not divisible by i increament i by 1`
    `7. End`
+
+### Approach to solve a problem
+
+Take problem --> Understand Problem --> Read given hints --> Think for approach --> Code --> Compile --> Run
