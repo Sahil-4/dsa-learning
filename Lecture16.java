@@ -1,23 +1,25 @@
 
-// javac Lecture16.java; java Lecture16
-
-class Lecture16 {
+public class Lecture16 {
     public static void main(String[] args) {
         // Lecture 16 : Selection sort
+
         p1();
     }
 
     public static void p1() {
-        // Problem 1 : Selection sort
+        // Problem 1 : Implement Selection sort
 
         // Statement : given an array of n integers
         // sort the array using Selection sort
 
         // Logic : Using Selection sort
-        // traverse the array for (i = 0; i < arr_size;)
-        // run another for loop for (j = i+1; j < arr_size)
-        // in i+1; to j < arr_size find the minimum element and swap that element with i
-        // This is a stable sorting algorithm 
+        // in Selection sort we devide array into two parts
+        // sorted part and unsorted part
+        // initially in sorted part we hava 0 elements
+        // and rest in unsorted part
+        // then we traverse the array,
+        // find minimum element
+        // then place it at the end of sorted array
 
         int arr[] = { 29, 72, 98, 13, 87, 66, 52, 51, 36 };
 
@@ -28,22 +30,22 @@ class Lecture16 {
         }
         System.out.println();
 
+        // sorting
         for (int i = 0; i < arr.length; i++) {
-            if (i == arr.length - 1) {
-                break;
-            }
+            // assuming minimum element index as i
+            int index_min = i;
 
-            int min = i;
-            for (int j = i + 1; j < arr.length; j++) {
-                if (arr[j] < arr[min]) {
-                    min = j;
+            // finding minimum element
+            for (int j = i; j < arr.length; j++) {
+                if (arr[j] < arr[index_min]) {
+                    index_min = j;
                 }
             }
 
-            // Swaping
+            // swapping minimum element with arr[i]
             int temp = arr[i];
-            arr[i] = arr[min];
-            arr[min] = temp;
+            arr[i] = arr[index_min];
+            arr[index_min] = temp;
         }
 
         // printing array

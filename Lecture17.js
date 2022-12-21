@@ -1,33 +1,26 @@
-const selectionSort = (arr) => {
+// bubble sort algorithm
+const bubbleSort = (arr) => {
+  // takes an array and sort that using bubble sort
   for (let i = 1; i < arr.length; i++) {
+    let isSorted = true;
+
     for (let j = 0; j < arr.length - i; j++) {
       if (arr[j].p > arr[j + 1].p) {
         let temp = arr[j];
         arr[j] = arr[j + 1];
         arr[j + 1] = temp;
+
+        isSorted = false;
       }
     }
-  }
-};
 
-const bubbleSort = (arr) => {
-  for (let i = 0; i < arr.length; i++) {
-    if (i == arr.length - 1) {
+    if (isSorted) {
       break;
     }
-
-    let min = i;
-    for (let j = i + 1; j < arr.length; j++) {
-      if (arr[j].p < arr[min].p) {
-        min = j;
-      }
-    }
-
-    let temp = arr[i];
-    arr[i] = arr[min];
-    arr[min] = temp;
   }
 };
+
+// Lecture 17 : Bubble Sort - p3() : stable algo or unstable algo
 
 const arr = [
   { f: "i", p: 9 },
@@ -41,12 +34,14 @@ const arr = [
   { f: "c", p: 3 },
 ];
 
-// Lecture 17 : stable algo or unstable algo 
-
+// before sorting
 console.table(arr);
 
-// selectionSort(arr);
-// bubbleSort(arr);
+// sorting
+bubbleSort(arr);
 
+// after sorting
 console.table(arr);
 
+// hence we can say that bubble sort is an stable sorting algorithm
+// because it does not changed the order of occurrence of similar elements
