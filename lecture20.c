@@ -42,24 +42,25 @@ void p2() {
     // sorted in non decreasing order
     // merge the both arrays in arr_1 in non decreasing order
 
-    // Logic : using two pointer approach 
-    // take i = last index of first array i.e. n-1, 
-    // j = last index of second array, 
-    // h = last index of final array 
-    // run a loop till i >= 0 and j >= 0, 
-    // check if arr_1[i] > arr_2[j], 
-    // in this case assign arr_1[hi] = arr_1[i], 
-    // then update hi = hi-1 and i = i-1 
-    // else assign arr_1[hi] = arr_2[j], 
-    // then update hi = hi-1 and j = j-1 
-    // after that add remaining elements in the array 
+    // Logic : using two pointer approach
+    // take i = last index of first array i.e. n-1,
+    // j = last index of second array,
+    // h = last index of final array
+    // run a loop till i >= 0 and j >= 0,
+    // check if arr_1[i] > arr_2[j],
+    // in this case assign arr_1[hi] = arr_1[i],
+    // then update hi = hi-1 and i = i-1
+    // else assign arr_1[hi] = arr_2[j],
+    // then update hi = hi-1 and j = j-1
+    // after that add remaining elements in the array
 
     // Code :
-    int arr_1[6] = {1,2,3,0,0,0}, n = 3, arr_2[3] = {2,5,6}, m = 3;
+    int arr_1[6] = {1, 2, 3, 0, 0, 0}, n = 3, arr_2[3] = {2, 5, 6}, m = 3;
     // int arr_1[1] = {1}, n = 1, arr_2[1] = {}, m = 0;
     // int arr_1[1] = {0}, n = 0, arr_2[1] = {1}, m = 1;
 
-    int i = n-1; int j = m-1, hi = n+m-1;
+    int i = n - 1;
+    int j = m - 1, hi = n + m - 1;
 
     while (i >= 0 && j >= 0) {
         if (arr_1[i] > arr_2[j]) {
@@ -90,14 +91,14 @@ void p3() {
     // move all 0's in the end of the array
     // without disturbing other elements
 
-    // Logic : removing all 0s and adding them in the end 
-    // take an integer c = 0 
-    // traverse the array from i = 0 to i < size 
-    // check if arr[i] is not 0 
-    // in this case assign arr[c] = arr[i] 
-    // update c = c+1 
-    // after then run a loop from i = c to i < size 
-    // assign arr[i] = 0 
+    // Logic : removing all 0s and adding them in the end
+    // take an integer c = 0
+    // traverse the array from i = 0 to i < size
+    // check if arr[i] is not 0
+    // in this case assign arr[c] = arr[i]
+    // update c = c+1
+    // after then run a loop from i = c to i < size
+    // assign arr[i] = 0
 
     // Code :
     int size = 5, arr[5] = {0, 1, 0, 3, 12};
@@ -114,7 +115,7 @@ void p3() {
         arr[i] = 0;
     }
 
-    // printing array 
+    // printing array
     for (int i = 0; i < size; i++) {
         printf("%d ", arr[i]);
     }
