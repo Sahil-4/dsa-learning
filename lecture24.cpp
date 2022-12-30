@@ -10,34 +10,31 @@ void p1() {
     // return the number of prime numbers that are strictly less than n.
 
     // logic : using sieve of eratosthenes 
+    // take a array/vector primes[] of bool of size n+1
+    // mark all elements true in primes 
+    // mark false to 0th and 1st index of prime 
+    // run a loop from i = 2 to i < n 
+    // check if primes[i] is true or false 
+    // if true it means primes[i] is a prime number 
+    // next except i mark false to all the indexes that can be devisible by i till n 
+    // after this go to next index 
+    // at the end primt all the indexes from i to n that are true in primes 
 
     int n = 40;
-
-    // is prime 
-    // for (int i = 2; i < n; i++) {
-    //     if (n%i == 0) {
-    //         cout << "not prime" << endl;
-    //     } else if (i == n-1) {
-    //         cout << "prime" << endl;
-    //     }
-    // }
 
     // count all prime numbers less then n 
     int count = 0;
     vector<bool> primes(n+1, true);
     primes[0] = primes[1] = false;
 
-    vector<int> all_primes; // contains all prime number !EXTRA 
-
     for (int i = 2; i < n; i++) {
         // check prime 
         if (primes[i]) {
             // update count if ith number is prime 
             count++;
-            all_primes.push_back(i);
 
-            // false all numbers that are present in ith table 
-            for (int j = i; j < n; j += i) {
+            // false all numbers that are divisible by ith number 
+            for (int j = i+i; j < n; j += i) {
                 primes[j] = false;
             }
         }
@@ -46,8 +43,10 @@ void p1() {
     cout << count << " prime numbers" << endl;
 
     // printing all prime numbers 
-    for (int i = 0; i < all_primes.size(); i++) {
-        cout << all_primes[i] << " ";
+    for (int i = 2; i < n; i++) {
+        if (primes[i]) {
+            cout << i << " ";
+        }
     }
     cout << endl;
 }
@@ -57,6 +56,13 @@ void p2() {
 
     // logic : using Euclids algorithm 
     // gcd(a, b) = gcd(a-b, b) or gcd(a%b, b) 
+    // check if any a or b is zero 
+    // if a is zero return b as answer 
+    // else return b 
+    // if no one is zero 
+    // run a loop while n != m 
+    // and perform max(a, b) = max(a, b) - min(a, b);
+    // at the end return a or b as answer 
 
     int n = 48, m = 72;
 
@@ -89,11 +95,18 @@ void p3() {
     // and A % C is the remainder when A is divided by C.
 
     // Logic : using fast exponentiation 
+    // a^b = (a^(b/2))^2 
+    // first initialise ans = 1 
+    // run a loop till n > 0 
+    // check if n is odd or even 
+    // if n is odd answer = (answer * (x%m)) % m 
+    // else only update x = ((x%m) * (x%m)) % m 
+    // right shift n 1 time 
+    // in the end print answer 
 
     int x = 4, n = 3, m = 10;
 
     int ans = 1;
-
     while(n > 0) {
         if (n&1) {
             // odd case 
@@ -109,7 +122,6 @@ void p3() {
 
 int main() {
     // Lecture 24 : Maths for DSA 
-    // g++ lecture24.cpp -o main; ./main 
 
     // p1();
 
